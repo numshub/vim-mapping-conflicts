@@ -16,6 +16,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import (absolute_import, division,
+                        print_function, unicode_literals)
+from builtins import *
+
 try:
     import vim
     import string
@@ -28,17 +32,17 @@ try:
     vim.command('redir END')
     tmp = vim.eval('@a')
     results = tmp
-    
+
     vim.command('redir @a')
     vim.command('silent nmap')
     vim.command('redir END')
     results = results + vim.eval('@a')
-    
+
     vim.command('redir @a')
     vim.command('silent vmap')
     vim.command('redir END')
     results = results + vim.eval('@a')
-    
+
     vim.command('redir @a')
     vim.command('silent imap')
     vim.command('redir END')
@@ -67,9 +71,10 @@ try:
                     commands.append(command)
 
     if not conflicts:
-        print "No key-mapping conflict found."
+        print("No key-mapping conflict found.")
     else:
-        print format(len(conflicts)), "conflicts found. Check conflicts.log for details"
+        print(format(len(conflicts)), "conflicts found. Check conflicts.log \
+                                       for details")
         with open('./conflicts.log', 'w') as file:
             file.write("Mode  -  Key sequence  -  Command\n\n")
             for command in conflicts:
@@ -80,4 +85,4 @@ try:
         file.close()
 
 except vim.error as e:
-    print e
+    print(e)
