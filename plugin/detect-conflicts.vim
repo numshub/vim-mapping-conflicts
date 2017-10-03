@@ -14,7 +14,7 @@
 " You should have received a copy of the GNU General Public License
 " along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-if !(and(has('python'), has('python3')))
+if !(or(has('python'), has('python3')))
     finish
 endif
 
