@@ -21,7 +21,7 @@ endif
 let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/detect-conflicts.py'
 
 function! DetectConflicts()
-    execute 'pyfile ' . s:path
+    execute 'py3file ' . s:path
 endfunc
 
 command! CheckMapping call DetectConflicts()
